@@ -13,7 +13,7 @@ public:
     {
         //выделяем память под сообщение
         _message = new char[strlen(message) + 1];
-        //сохраняем данные об ощибке
+        //сохраняем данные об ошибке
         strcpy(_message, message);
     };
 

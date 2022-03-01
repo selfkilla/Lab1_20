@@ -15,7 +15,7 @@ public:
         _message = new char[strlen(message) + 1];
         //сохраняем данные об ошибке
         strcpy(_message, message);
-    };
+    }
 
     //конструктор копирования
     EStackException(const EStackException &object)
@@ -28,7 +28,7 @@ public:
     ~EStackException()
     {
         delete _message;
-    };
+    }
 
     //Возвращаем диагностическое сообщение
     const char* what() const

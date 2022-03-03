@@ -22,17 +22,6 @@ private:
 public:
     ~Stack() {Clear();} //Деструктор
 
-    void Clear() // Удаление вслех узлов
-    {
-        while(pointBottom_ != nullptr) //Пока последний элемент не нулевой, то есть пока в стеке все ещё есть элементы
-        {
-            NodeStack *tmp = pointBottom_;
-            pointBottom_ = pointBottom_->pointPrevious_;
-            delete tmp;
-        }
-
-    }
-
     void Push(const T &item) //Кладем значение в стек
     {
         NodeStack *node = new NodeStack{item, pointBottom_}; //Создаём новое звено

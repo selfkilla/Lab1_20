@@ -19,5 +19,10 @@ int main()
 
     std::cout << Stack.Size() << std::endl;
 
+    int d = Stack.Pop();
+
+    std::cout << d << std::endl;
+    std::cout << Stack.Size() << std::endl;
+
     return 1;
 }

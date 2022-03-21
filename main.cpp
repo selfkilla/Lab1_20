@@ -1,16 +1,17 @@
 #include <QCoreApplication>
+#include "Person.h"
+#include "PersonKeeper.h"
 #include <iostream>
+#include <string>
+#include <fstream>
 #include <EStackEmpty.h>
 #include <EStackException.h>
 #include <Stack.h>
 
 int main()
 {
-    //QCoreApplication a(argc, argv);
-
-    //return a.exec();
-
-    //Тестим
+    //Part One
+    /*
     Stack<int> Stack;
     Stack.Push(2);
     Stack.Push(3);
@@ -23,6 +24,19 @@ int main()
 
     std::cout << d << std::endl;
     std::cout << Stack.Size() << std::endl;
+    */
+
+    //Part Two
+    PersonKeeper* keeper = PersonKeeper::getInstance();
+
+    Stack<Person> personStack = keeper->readPerson("C:\\Users\\danab\\Desktop\\Projects PO\\Lab1_20\\file.txt");
+
+    //Check last person on the stack
+    Person lastPerson = personStack.Pop();
+
+    std::cout << lastPerson.getFullName() << std::endl;
+
+    keeper->writePerson(personStack);
 
     return 1;
 }

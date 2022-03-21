@@ -1,10 +1,10 @@
 #ifndef PERSON_H
 #define PERSON_H
 #include <iostream>
+#include <string>
 class Person
 {
 private:
-    //long key;
     std::string last_name;
     std::string first_name;
     std::string patronimic;

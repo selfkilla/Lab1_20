@@ -2,8 +2,7 @@
 #define PERSON_H
 #include <iostream>
 #include <string>
-class Person
-{
+class Person {
 private:
     std::string last_name;
     std::string first_name;
@@ -13,30 +12,25 @@ public:
     Person() {}
 
     //Constructor
-    Person(std::string firstName, std::string lastName, std::string patronimic_)
-    {
+    Person(std::string firstName, std::string lastName, std::string patronimic_) {
         first_name = firstName;
         last_name = lastName;
         patronimic = patronimic_;
     }
 
     //Copy constructor
-    Person(const Person& person)
-    {
+    Person(const Person& person) {
         last_name = person.getLastName();
         first_name = person.getFirstName();
         patronimic = person.getPatronimic();
     }
 
-    Person &operator= (Person const& arg)
-    {
-        if(this != &arg)
-        {
+    Person &operator= (Person const& arg) {
+        if(this != &arg) {
             first_name = arg.getFirstName();
             last_name = arg.getLastName();
             patronimic = arg.getPatronimic();
         }
-
         return *this;
     }
 
@@ -44,8 +38,7 @@ public:
     ~Person() {}
 
     //Get full name of a person
-    std::string getFullName()
-    {
+    std::string getFullName() {
         std::string fullName;
         fullName.append(last_name).append(1, ' ')
                 .append(first_name).append(1, ' ')
@@ -59,18 +52,15 @@ public:
 
     const std::string getPatronimic() const { return patronimic; }
 
-    void setLastName(std::string namePart)
-    {
+    void setLastName(std::string namePart) {
         last_name = namePart;
     }
 
-    void setFirstName(std::string namePart)
-    {
+    void setFirstName(std::string namePart) {
         first_name = namePart;
     }
 
-    void setPatronimic(std::string namePart)
-    {
+    void setPatronimic(std::string namePart) {
         patronimic = namePart;
     }
 };

@@ -7,11 +7,9 @@
 
 //Стек опишем как шаблонный класс на основе односвязного списка
 template<class T>
-class Stack
-{
+class Stack {
 private:
-    struct NodeStack //Узел описываем структурой
-    {
+    struct NodeStack { //Узел описываем структурой
         const T item_;
         NodeStack *pointPrevious_; //Указатель на предыдущее звено стека
     };
@@ -22,10 +20,8 @@ private:
 public:
     ~Stack() {Clear();} //Деструктор
     
-    void Clear() // Удаление вслех узлов
-    {
-        while(pointBottom_ != nullptr) //Пока последний элемент не нулевой, то есть пока в стеке все ещё есть элементы
-        {
+    void Clear() { // Удаление вслех узлов
+        while(pointBottom_ != nullptr) { //Пока последний элемент не нулевой, то есть пока в стеке все ещё есть элементы
             NodeStack *tmp = pointBottom_;
             pointBottom_ = pointBottom_->pointPrevious_;
             delete tmp;
@@ -33,12 +29,10 @@ public:
 
     }
 
-    void Push(const T &item) //Кладем значение в стек
-    {
+    void Push(const T &item) { //Кладем значение в стек
         NodeStack *node = new NodeStack{item, pointBottom_}; //Создаём новое звено
 
-        if(node == nullptr)
-        {
+        if(node == nullptr) {
             throw EStackException("No memory!");
         }
 
@@ -46,10 +40,8 @@ public:
         size_++; //Увеличиваем размер стека
     }
 
-    const T Pop() //Извлекаем значение из стека
-    {
-        if(pointBottom_ == nullptr) //Если стек пустой, выбрасываем исключение
-        {
+    const T Pop() { //Извлекаем значение из стека
+        if(pointBottom_ == nullptr) { //Если стек пустой, выбрасываем исключение
             throw EStackEmpty();
         }
 
@@ -61,8 +53,7 @@ public:
         return item; //Возвращаем новое значение
     }
 
-    int Size()
-    {
+    int Size() {
         return size_;
     }
 

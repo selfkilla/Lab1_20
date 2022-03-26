@@ -2,15 +2,13 @@
 #define ESTACKEXCEPTION_H
 #include <cstring>
 
-class EStackException
-{
+class EStackException {
 private:
     char* _message;
 
 public:
     //конструктор
-    EStackException(const char* message)
-    {
+    EStackException(const char* message) {
         //выделяем память под сообщение
         _message = new char[strlen(message) + 1];
         //сохраняем данные об ошибке
@@ -18,24 +16,20 @@ public:
     }
 
     //конструктор копирования
-    EStackException(const EStackException &object)
-    {
+    EStackException(const EStackException &object) {
         _message = new char[strlen(_message) + 1];
         strcpy(_message, object._message);
     }
 
     //Деструктор (освободжаем выделенную память)
-    ~EStackException()
-    {
+    ~EStackException() {
         delete _message;
     }
 
     //Возвращаем диагностическое сообщение
-    const char* what() const
-    {
+    const char* what() const {
         return _message;
     }
-
 };
 
 #endif // ESTACKEXCEPTION_H

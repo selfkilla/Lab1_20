@@ -8,8 +8,7 @@
 #include <EStackException.h>
 #include <Stack.h>
 
-int main()
-{
+int main() {
     //Part One
     /*
     Stack<int> Stack;
